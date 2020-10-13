@@ -1,0 +1,37 @@
+---
+title: "Capstone Text Prediction Application"
+author: "KF"
+date: "10/12/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(jpeg)
+```
+
+## Problem Statement
+
+This project is designed to create an application that predicts text, given the beginning of a statement. I used sample data from twitter, news, and blogs to create a dictionary for predictions. My R code compares the written text to the dictionary I created and searches for the most common pattern of words. It suggests three words that are most likely to follow the given statement.
+
+## Prediction Algorithm
+
+- Source data includes over 3 million lines of Twitter, News, and Blog data
+- Creates "N-grams" from a random sample of source data
+    + Two, Three and Four Grams are all created as unique dictionaries
+- Given text input, it reviews the dictionaries for the most common occurring word following that string
+    + The algorithm uses the three most recent words to search through the 4-gram dictionary
+    + If that pattern doesn't exist, it reviews the two previous words in the 3-gram dictionary, and so on
+
+## How it works
+
+- Upon the app opening, the dictionaries are loaded and functions are defined so that code is not run for each text input
+- There is a Text Input box on the app UI for users to start typing text
+- When the text is inputted, the app will present the three most likely words to follow the string
+
+
+## Opportunities for Improvement
+
+- Improve the initial speed of the app (speed after word 1 is acceptable)
+- Evaluate which sources are most transferable to the type of text in this particular app. Twitter, News, and Blogs had different language patterns that are not all applicable in the same setting.
+- Spend more time enhancing the sample coverage while decreasing the dictionary size
